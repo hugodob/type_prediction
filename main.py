@@ -13,7 +13,6 @@ def main():
     data_set.clear_data_in_list("type", list_labels)
     data=vectorization_Doc2Vec.format_data(data_set.data)
     np.savetxt('Data set/test.out', data_set.data[:,1], fmt='%s')
-    size=[20, 40, 60, 80]
     sentences= vectorization_Doc2Vec.format_labeled_sentences(data[:,0])
     model=vectorization_Doc2Vec.train_Doc2Vec(sentences, 1, 10, 40, 1e-4, 5, 8, 10)
     list_labels=['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL']

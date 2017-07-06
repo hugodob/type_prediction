@@ -3,8 +3,7 @@ from gensim.models import Doc2Vec
 import keras
 from keras.models import Sequential
 from keras.layers import Dense,Activation, Dropout
-from sklearn.model_selection import GridSearchCV
-from keras.wrappers.scikit_learn import KerasClassifier
+
 
 #Fits the data set in a training set (80% of the data) and a test set (20% of the data)
 def prepare_data_set(labels, list_labels, model, size_vectors):
