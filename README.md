@@ -10,7 +10,7 @@ This is why, we finally we decided to deal with these types: ['STRING', 'TEXT', 
 ![](graph_first_data_exploration/10_most_common_type.png)
 Here are the 10 most common types having cleared "Tags" and "Folder":
 
-<br />
+
 > vectorization_Doc2Vec.py <br />
 zfhljgzkqlsch
 dsqclhjzd
