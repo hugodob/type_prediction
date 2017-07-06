@@ -6,6 +6,8 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Dropout
 from keras.constraints import maxnorm
+
+
 def create_model(size_vectors=40,nb_hidden_layers=1, kernel_initializer="lecun_uniform", neurons, dropout_rate=0.0, weight_constraint=0, loss='categorical_crossentropy', optimizer="Nadam", activation='relu', output_activation='softmax'):
 	# create model
 	model = Sequential()
@@ -19,4 +21,4 @@ def create_model(size_vectors=40,nb_hidden_layers=1, kernel_initializer="lecun_u
 	model.compile(loss=loss, optimizer=optimizer, metrics=['accuracy'])
 	return model
 
-def find_best_parameters()
+#def find_best_parameters():
