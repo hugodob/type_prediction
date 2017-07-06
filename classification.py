@@ -25,7 +25,7 @@ def prepare_data_set(labels, list_labels, model, size_vectors):
     return train_arrays, train_labels, test_arrays, test_labels
 
 
-#This function builds the MLP, trains it and saves it
+#This function builds the (500(0.2)-500(0.2)-50(0.2)-9) MLP, trains it and saves it
 def train_class(size_vectors, train_arrays, train_labels, test_arrays, test_labels):
     mlp = Sequential()
     mlp.add(Dense(500,input_dim=size_vectors,activation='relu', kernel_initializer='lecun_uniform'))
