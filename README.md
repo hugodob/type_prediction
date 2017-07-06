@@ -6,10 +6,11 @@ There are 4 files which result from the 4 main stages I had during this project.
 
 > ### DataSet.py<br />
 This file defines a new object called DataSet which enables us to extract data from a csv, clean this data according to what we want to do with it and plot some indicators which will help us driving our timeline. <br />
-I used it in order to clean the data set and ploted the 10 most common types. This made me realise that the types "Folder" and "Tags" were overused and we finally decided not to take them into account for the predictions. Better still, ploting the data also showed that a lot of custom types were used but each one only a few times. These types being registered directly by the customer, we decided not to take them into account as we couldn't predict what doesn't already exist. <br />
+I used it in order to clean the data set and ploted the 10 most common types and display names. This made me realise that the names "Folder" and "Tags" were overused and we finally decided not to take them into account for the predictions (they are automatically generated so no need to predict their types). Better still, ploting the data also showed that a lot of custom types were used but each one only a few times. These types being registered directly by the customer, we decided not to take them into account as we couldn't predict what doesn't already exist. <br />
 This is why, we finally we decided to deal with these types: ['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL'], giving us a 24,000 rows data set after all clearings. <br />
 ![](graph_first_data_exploration/10_most_common_type.png)
 Here are the 10 most common types having cleared "Tags" and "Folder": <br/><br/>
+
 
 
 > ### vectorization_Doc2Vec.py <br />
@@ -27,5 +28,7 @@ In this part, we implement the multilayer perceptron, which will predict the typ
 To be done...
 
 
-
+## Conclusion
+In the end, these few lines of code (much more in reality as I used a lot of built-in functions from Keras or Gensim) result in a 0.76 accuracy on the test set previously extracted. This was achieved with a (500(0.2)-500(0.2)-50(0.2)-9) MLP, with the "Nadam" optimizer, the "lecun_uniform" initializer and Doc2Vec output vectors of size 40. 
+This performance is considered acceptable as our data set is composed of display names from wide brand of languages (English, Russian, French, Chinese...) and companies, with display names that may not have the same meaning depending on which company we are dealing with. To enhance this performance, we could first use other inputs such as the domain, the library id... Better still, we could evolutionary algorithms such as ABC (Artificial Bee Colony) to help us optimize the learning parameters we chose, change the MPL architecture or even choose another model than Doc2Vec in order to vectorize our display names. 
 
