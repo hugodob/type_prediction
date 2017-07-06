@@ -25,7 +25,7 @@ In this part, we implement the multilayer perceptron, which will predict the typ
 
 
 > ### optimization.py <br />
-To be done...
+To do...
 
 
 ## Conclusion
