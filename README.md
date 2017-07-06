@@ -11,6 +11,8 @@ Here are the 10 most common types having cleared "Tags" and "Folder":
 <img src="graph_first_data_exploration/10_most_common_type.png" width="800"/>
 
 <br />
->vectorization_Doc2Vec.py<br />
+>vectorization_Doc2Vec.py <br />
+zfhljgzkqlsch
+dsqclhjzd
 
 
