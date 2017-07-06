@@ -9,7 +9,7 @@ This file defines a new object called DataSet which enables us to extract data f
 I used it in order to clean the data set and ploted the 10 most common types. This made me realise that the types "Folder" and "Tags" were overused and we finally decided not to take them into account for the predictions. Better still, ploting the data also showed that a lot of custom types were used but each one only a few times. These types being registered directly by the customer, we decided not to take them into account as we couldn't predict what doesn't already exist. <br />
 This is why, we finally we decided to deal with these types: ['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL'], giving us a 24,000 rows data set after all clearings. <br />
 ![](graph_first_data_exploration/10_most_common_type.png)
-Here are the 10 most common types having cleared "Tags" and "Folder": <br/>
+Here are the 10 most common types having cleared "Tags" and "Folder": <br/><br/>
 
 
 > ### vectorization_Doc2Vec.py <br />
