@@ -15,6 +15,17 @@ Here are the 10 most common types having cleared "Tags" and "Folder": <br/><br/>
 > ### vectorization_Doc2Vec.py <br />
 After formatting the data as mentioned above, we end up with a matrix containing all our display names in its first column and all the types associated in the second one. The problem here, is that we want to classify the display names and would therefore like to use a multilayer perceptron, however the input data should be float vectors and not string ones. Consequently we need to convert our display names to vectors and this is the tricky part. <br/>
 A first implementation would be to use the "bag of words" method which would convert each display name to a vector by adding the vectors associated to each word. However, this method wouldn't take into consideration the similarity between some names and for example the vectors associated with "closing date" and "sale's date" could be very different one to the other, while here we would like them to be close as both are going to end up with a "Date" type. <br/>
-Therefore, we decided to use the Doc2Vec model from gensim, which takes all our inputs, builds a dictionnary based on the documents (here the display names) we gave it and associates better suited vectors to each display name. 
+Therefore, we decided to use the Doc2Vec model from gensim, which takes all our inputs, builds a dictionnary based on the documents (here the display names) we gave it and associates better suited vectors to each display name. <br/><br/>
+
+
+> ### classification.py <br />
+In this part, we implement the multilayer perceptron, which will predict the types in output after being trained. First, we format the data, between the training set which amounts in 80% of our original set and the other 20% which will form our test set and help us monitor the accuracy of our model during the optimization process. Then, the train_class function impements the architecture of our neural network and trains it on the training before returning the trained model as output. <br/><br/>
+
+
+
+> ### optimization.py <br />
+To be done...
+
+
 
 
