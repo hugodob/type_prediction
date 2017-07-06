@@ -15,7 +15,6 @@ def main():
     np.savetxt('Data set/test.out', data_set.data[:,1], fmt='%s')
     sentences= vectorization_Doc2Vec.format_labeled_sentences(data[:,0])
     model=vectorization_Doc2Vec.train_Doc2Vec(sentences, 1, 10, 40, 1e-4, 5, 8, 10)
-    list_labels=['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL']
     #model=Doc2Vec.load('Doc2Vec models/imdb_1_10_%d_0.000100_5_8_10' %(size_vectors))
     labels=np.loadtxt("Data set/test.out", dtype=str)
     train_arrays, train_labels, test_arrays, test_labels=classification.prepare_data_set(labels, list_labels, model, 40)
