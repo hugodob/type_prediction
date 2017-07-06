@@ -31,5 +31,5 @@ def train_Doc2Vec(sentences, min_count, window, size, sample, negative, workers,
         print('starting %d epoch'%(epoch))
         shuffle(sentences)
         model.train(sentences, total_examples=46387, epochs=nb_epochs)
-    model.save('./imdb_%d_%d_%d_%f_%d_%d_%d' %(min_count, window, size, sample, negative, workers, nb_epochs))
+    model.save('/Doc2Vec models/imdb_%d_%d_%d_%f_%d_%d_%d' %(min_count, window, size, sample, negative, workers, nb_epochs))
     return model
