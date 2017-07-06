@@ -9,6 +9,7 @@ class DataSet(object):
         self.headers=headers
         self.data=data
 
+#import data from a csv file
     def import_from_csv(self, path_to_csv):
         with open(path_to_csv, 'r') as f:
             reader = csv.reader(f)
@@ -19,6 +20,7 @@ class DataSet(object):
         self.data=data
         return headers, data
 
+#Extract only certai fields (the ones in fields array)
     def extract_fields_data(self, fields):
         new_headers=[]
         indices=[]
@@ -33,6 +35,7 @@ class DataSet(object):
         self.data=self.data[:, indices]
         return self.headers, self.data
 
+#plots the number most common field patterns
     def plot_most_common_patterns(self, field, number):
         if(self.headers.index(field)==-1):
             raise RuntimeError('%s is not a valid field of data set' %field)
@@ -52,8 +55,10 @@ class DataSet(object):
 
 
     def plot_distribution(self):
+        #to be done
         return
 
+#This function deletes all the rows where the value corresponding to field is equal to pattern
     def clear_data(self, field, pattern):
         if(self.headers.index(field)==-1):
             raise RuntimeError('%s is not a valid field of data set' %field)
@@ -61,6 +66,7 @@ class DataSet(object):
             self.data=self.data[np.logical_not(self.data[:, self.headers.index(field)]==pattern)]
         return self.data
 
+#Clears the data and keeps only the row where the pattern corresponding to field is in list_of_interest
     def clear_data_in_list(self, field, list_of_interest):
         new_data=[]
         if(self.headers.index(field)==-1):
