@@ -15,15 +15,14 @@ def main():
     np.savetxt('Data set/test.out', data_set.data[:,1], fmt='%s')
     size=[20, 40, 60, 80]
     sentences= vectorization_Doc2Vec.format_labeled_sentences(data[:,0])
-    for  size_vectors in size:
-        model=vectorization_Doc2Vec.train_Doc2Vec(sentences, 1, 10, size_vectors, 1e-4, 5, 8, 10)
-        list_labels=['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL']
-        #model=Doc2Vec.load('Doc2Vec models/imdb_1_10_%d_0.000100_5_8_10' %(size_vectors))
-        labels=np.loadtxt("Data set/test.out", dtype=str)
-        train_arrays, train_labels, test_arrays, test_labels=classification.prepare_data_set(labels, list_labels, model, size_vectors)
-        mlp=classification.train_class(size_vectors, train_arrays, train_labels, test_arrays, test_labels)
-        testscore=mlp.evaluate(test_arrays,test_labels,verbose=1)
-        print("test score")
-        print(testscore)
+    model=vectorization_Doc2Vec.train_Doc2Vec(sentences, 1, 10, 40, 1e-4, 5, 8, 10)
+    list_labels=['STRING', 'TEXT', 'PERSON', 'DATE', 'INTEGER', 'BOOLEAN', 'DECIMAL', 'DATETIME', 'URL']
+    #model=Doc2Vec.load('Doc2Vec models/imdb_1_10_%d_0.000100_5_8_10' %(size_vectors))
+    labels=np.loadtxt("Data set/test.out", dtype=str)
+    train_arrays, train_labels, test_arrays, test_labels=classification.prepare_data_set(labels, list_labels, model, 40)
+    mlp=classification.train_class(40, train_arrays, train_labels, test_arrays, test_labels)
+    testscore=mlp.evaluate(test_arrays,test_labels,verbose=1)
+    print("test score")
+    print(testscore)
     return
 main()
