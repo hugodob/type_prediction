@@ -21,6 +21,9 @@ def main():
         #model=Doc2Vec.load('Doc2Vec models/imdb_1_10_%d_0.000100_5_8_10' %(size_vectors))
         labels=np.loadtxt("Data set/test.out", dtype=str)
         train_arrays, train_labels, test_arrays, test_labels=classification.prepare_data_set(labels, list_labels, model, size_vectors)
-        classification.train_class(size_vectors, train_arrays, train_labels, test_arrays, test_labels)
+        mlp=classification.train_class(size_vectors, train_arrays, train_labels, test_arrays, test_labels)
+        testscore=mlp.evaluate(test_arrays,test_labels,verbose=1)
+        print("test score")
+        print(testscore)
     return
 main()

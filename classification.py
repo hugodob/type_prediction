@@ -37,7 +37,4 @@ def train_class(size_vectors, train_arrays, train_labels, test_arrays, test_labe
     mlp.compile(loss='categorical_crossentropy', optimizer='Nadam', metrics=['accuracy'])
     mlp.fit(train_arrays,train_labels,epochs=50,batch_size=50, validation_split=.05)
     mlp.save('classification models/my_model.h5')
-    testscore=mlp.evaluate(test_arrays,test_labels,verbose=1)
-    print("test score")
-    print(testscore)
-    return
+    return mlp
